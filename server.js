@@ -6,7 +6,7 @@ var app = express();
 const port = process.env.PORT || 5000;
 
 app.use(function(req,res,next){
-  if(req.heaeders['x-forwarded-proto']==='http'){
+  if(req.headers['x-forwarded-proto']==='http'){
     next();
   }
   else{
