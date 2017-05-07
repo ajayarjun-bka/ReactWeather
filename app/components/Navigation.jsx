@@ -2,17 +2,43 @@ var React = require('react');
 var {Link, IndexLink} = require('react-router');
 
 var Navigation = React.createClass({
-  render: function()
+  onSearch: function(e)
   {
-    return(
-      <div>
-      <h2>Navigation Bar</h2>
-      <IndexLink to='/' activeClassName = 'active' activeStyle={{color:'red'}} >Weather</IndexLink>
-      <Link to='/about' activeClassName = 'active' activeStyle={{color:'red'}}> About </Link>
-      <Link to='/examples' activeClassName = 'active' activeStyle={{color:'red'}}> Examples</Link>
-    </div>
-    );
-  }
-});
+    e.preventDefault();
+    console.log("Gotcha");
+  },
+  render: function() {
+    return (
+      <div className="top-bar">
+          <div className="top-bar-left">
+            <ul className="menu">
+              <li className="menu-text">React Weather App</li>
+              <li>
+                <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
+              </li>
+              <li>
+                <Link to="/about" activeClassName="active"  activeStyle={{fontWeight: 'bold'}}>About</Link>
+              </li>
+              <li>
+                <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="top-bar-right">
+            <form onSubmit={this.onSearch}>
+              <ul className="menu">
+                <li>
+                  <input type="search" placeholder="Search weather"/>
+                </li>
+                <li>
+                  <input type="submit" className="button" value="Get Weather"/>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </div>
+      );
+    }
+  });
 
-module.exports = Navigation;
+  module.exports = Navigation;
