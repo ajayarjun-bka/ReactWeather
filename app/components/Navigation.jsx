@@ -5,7 +5,13 @@ var Navigation = React.createClass({
   onSearch: function(e)
   {
     e.preventDefault();
-    console.log("Gotcha");
+    var temp = this.refs.searchInput.value;
+    var search = encodeURIComponent(temp);
+    if(search && search.length>0){
+      this.refs.searchInput.value="";
+      window.location.hash ='#/?location='+search;
+    }
+
   },
   render: function() {
     return (
@@ -28,7 +34,7 @@ var Navigation = React.createClass({
             <form onSubmit={this.onSearch}>
               <ul className="menu">
                 <li>
-                  <input type="search" placeholder="search weather by city"/>
+                  <input type="search" placeholder="search weather by city" ref="searchInput"/>
                 </li>
                 <li>
                   <input type="submit" className="button" value="Get Weather"/>
