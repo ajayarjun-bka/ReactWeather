@@ -29,7 +29,8 @@ module.exports = {
       Examples : 'app/components/Examples.jsx',
       WeatherForm : 'app/components/WeatherForm.jsx',
       WeatherResult:'app/components/WeatherResult.jsx',
-      OpenWeatherMap:'app/api/OpenWeatherMap.jsx'
+      OpenWeatherMap:'app/api/OpenWeatherMap.jsx',
+      ErrorModal: 'app/components/ErrorModal.jsx'
     },
     extensions : ['','.js','.jsx']
   },
@@ -45,5 +46,5 @@ module.exports = {
       }
     ]
   },
-  devtool: 'eval-source-map'
+  devtool: 'cheap-module-eval-source-map'
 };
