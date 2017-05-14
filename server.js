@@ -1,5 +1,5 @@
 var express = require('express');
-
+const path = require('path');
 // create the app
 
 var app = express();
@@ -16,6 +16,11 @@ app.use(function(req,res,next){
 });
 
 app.use(express.static('public'));
+
+app.get('*', function (request, response){
+  response.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+});
+
 
 app.listen(port,function()
 {

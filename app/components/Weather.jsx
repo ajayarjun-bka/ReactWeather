@@ -3,6 +3,7 @@ var WeatherForm = require('WeatherForm');
 var WeatherResult = require('WeatherResult');
 var OpenWeatherMap = require('OpenWeatherMap');
 var ErrorModal = require('ErrorModal');
+const { browserHistory } = require("react-router");
 
 var Weather = React.createClass({
   getInitialState: function() {
@@ -33,7 +34,8 @@ var Weather = React.createClass({
     if(location && location.length>0)
     {
       this.handleResponse(location);
-      window.location.hash="#/"
+      browserHistory.push(`/`);
+      //window.location.hash="#/"
     }
   },
   componentDidMount:function()
@@ -42,7 +44,8 @@ var Weather = React.createClass({
     if(location && location.length>0)
     {
       this.handleResponse(location);
-      window.location.hash="#/"
+      //window.location.hash="#/"
+      browserHistory.push(`/`);
     }
   },
   render: function() {

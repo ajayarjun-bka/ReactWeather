@@ -1,5 +1,6 @@
 var React = require('react');
 var {Link, IndexLink} = require('react-router');
+const { browserHistory } = require("react-router");
 
 var Navigation = React.createClass({
   onSearch: function(e)
@@ -9,7 +10,9 @@ var Navigation = React.createClass({
     var search = encodeURIComponent(temp);
     if(search && search.length>0){
       this.refs.searchInput.value="";
-      window.location.hash ='#/?location='+search;
+      //window.location.hash ='#/?location='+search;
+      browserHistory.push(`/?location=${search}`);
+
     }
 
   },
