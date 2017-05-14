@@ -30,7 +30,9 @@ var Weather = React.createClass({
   },
   componentWillReceiveProps: function(newProps)
   {
-    var location = this.props.location.query.location;
+    // alert('triggered');
+    // console.log(newProps);
+    var location = newProps.location.query.location;
     if(location && location.length>0)
     {
       this.handleResponse(location);
